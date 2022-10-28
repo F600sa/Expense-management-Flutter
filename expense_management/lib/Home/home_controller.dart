@@ -27,17 +27,29 @@ class C {
     }
     return total_expenses;
   }
+
   /* income and  current_balance saving */
   double income = 6000;
 
-  double spending_fun(double expenses,double goals,) {
-    return  expenses+goals;
+  double spending_fun(
+    double expenses,
+    double goals,
+  ) {
+    return expenses + goals;
   }
-  double current_balance_fun(double income,double spending,) {
-    return  income-spending;
+
+  double current_balance_fun(
+    double income,
+    double spending,
+  ) {
+    return income - spending;
   }
-  double saving_fun(double income,double spending,){
-    return  income-spending;
+
+  double saving_fun(
+    double income,
+    double spending,
+  ) {
+    return income - spending;
   }
 
 /* Shopping */
