@@ -1,6 +1,9 @@
 
 // ignore_for_file: prefer_const_constructors, unnecessary_new, avoid_print
 
+import 'dart:ffi';
+
+import 'package:expense_management/Chart/Chart2.dart';
 import 'package:flutter/material.dart';
 import 'Home/home_controller.dart';
 
@@ -19,7 +22,7 @@ void main() {
 
   sho.add_another_list(50, true, DateTime.now(), "another", "another");
   print(sho.total_expenses_fun());
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -29,7 +32,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Text("hi"),
+      home:Chart(),
     );
   }
 }
