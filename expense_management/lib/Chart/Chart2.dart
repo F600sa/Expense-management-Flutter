@@ -189,10 +189,10 @@ class _ChartState extends State<Chart> {
                 ),
             // color:"#B7DEC9",color:"#FEF0D0"
               ),
-        MyWidget(text: "Saving",text2: a1.toString(),icons2: Icons.date_range,color23: ("#519872"),color1:("#519872")),
-        MyWidget(text: "Expense",text2: "1700",icons2: Icons.abc ,color23: ("#EBA90D"),color1:("#EBA90D")),
-        MyWidget(text: "Goal",text2: "250",icons2: Icons.abc,color23: ("#519872"),color1:"#519872",),
-        MyWidget(text: "Fixed",text2: "1000",icons2: Icons.abc,color23: ("EBA90D"),color1:"#EBA90D"),
+        MyWidget(text: "Saving",text2: a1.toString(),icons2: Icons.money_sharp,color23: ("#519872"),color1:("#519872")),
+        MyWidget(text: "Expense",text2: "1700",icons2: Icons.money ,color23: ("#EBA90D"),color1:("#EBA90D")),
+        MyWidget(text: "Goal",text2: "250",icons2: Icons.flag,color23: ("#519872"),color1:"#519872",),
+        MyWidget(text: "Fixed",text2: "1000",icons2: Icons.money_off_csred_rounded,color23: ("EBA90D"),color1:"#EBA90D"),
        
 
             ],
@@ -202,8 +202,8 @@ class _ChartState extends State<Chart> {
   }
   List<GDPData>GetChartData(){
     final List<GDPData>chartData=[
-      GDPData("Saving",1000 ),
-      GDPData("Expense",2,),
+      GDPData("Saving",100 ),
+      GDPData("Expense",75,),
       GDPData("Goal", x),
       GDPData("Fixed", 134),
       

@@ -70,26 +70,6 @@ class _MianState extends State<Mian> {
 
   @override
   Widget build(BuildContext context) {
-
-
-
-    // return GetMaterialApp(
-    //   debugShowCheckedModeBanner: false,
-    //   title: 'home',
-    //   // initialRoute: "/home",
-    //   defaultTransition: Transition.zoom,
-    //   home: SafeArea(
-    //       child: Scaffold(
-      
-    //     bottomNavigationBar: NavigationBar(
-    //       selectedIndex: selectedIndex,
-    //       onDestinationSelected: (index) => setState((){
-    //         selectedIndex = index;
-    //       }),
-    //       backgroundColor: Colors.white,
-    //       destinations: const [
-    //         NavigationDestination(
-
     return SafeArea(
         child: Scaffold(
       bottomNavigationBar: NavigationBar(
@@ -126,7 +106,7 @@ class _MianState extends State<Mian> {
                 color: Color(0xFF519872),
               ),
 
-              label: 'Home',
+              label: 'Profile',
             ),
             
           ],

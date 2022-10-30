@@ -49,7 +49,7 @@ class _ProfileState extends State<Profile> {
        body: Column(
           children: [
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [Text("data"),Text("data"),Text("data")],
+            // children: [Text("data"),Text("data"),Text("data")],
             ),
 
             Container(
