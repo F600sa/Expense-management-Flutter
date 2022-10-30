@@ -14,51 +14,53 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment:CrossAxisAlignment.stretch ,
-      children: [
-       const Text("Current Balance",style: TextStyle(
-        fontSize: 22,
-        color: Colors.black,
-       ),),
-      const SizedBox(height: 10,),
-      
-        Text(controller.current_balance_fun(controller.income,2).toInt().toString()+" SAR",style: const TextStyle(
-        fontSize: 20,
-        color: Colors.black,
-        fontWeight: FontWeight.w700,
-       ),),
-       const SizedBox(height: 10,),
-       Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween ,
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment:CrossAxisAlignment.stretch ,
         children: [
-          SpendingAndIncome(color:const Color(0xFFB7DEC9),
-           icon:Icons.arrow_downward_rounded, 
-           secondaryColor:const Color(0xFF519872),
-            money: controller.income.toInt(), name: 'Income',),
-          SpendingAndIncome(color:const Color(0xFFFEF0D0),
-           icon: Icons.arrow_upward,
-            secondaryColor:const Color(0xFFEBA90D),
-             money: controller.spending_fun(2).toInt(), name: 'Spending',),
+         const Text("Current Balance",style: TextStyle(
+          fontSize: 22,
+          color: Colors.black,
+         ),),
+        const SizedBox(height: 10,),
+        
+          Text(controller.current_balance_fun(controller.income,2).toInt().toString()+" SAR",style: const TextStyle(
+          fontSize: 20,
+          color: Colors.black,
+          fontWeight: FontWeight.w700,
+         ),),
+         const SizedBox(height: 10,),
+         Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween ,
+          children: [
+            SpendingAndIncome(color:const Color(0xFFB7DEC9),
+             icon:Icons.arrow_downward_rounded, 
+             secondaryColor:const Color(0xFF519872),
+              money: controller.income.toInt(), name: 'Income',),
+            SpendingAndIncome(color:const Color(0xFFFEF0D0),
+             icon: Icons.arrow_upward,
+              secondaryColor:const Color(0xFFEBA90D),
+               money: controller.spending_fun(2).toInt(), name: 'Spending',),
+          ],
+         ),
+         const SizedBox(height: 10,),
+    
+         Card(
+          elevation:5,
+          shape:RoundedRectangleBorder(borderRadius:BorderRadius.circular(16)),
+          clipBehavior:Clip.hardEdge,
+          child:  MyBudget(icon:  Icons.attach_money_rounded, color:const Color(0xFFB7DEC9),secondaryColor:const Color(0xFF519872)),
+         ),
+         const SizedBox(height: 20,),
+         Row(
+          mainAxisAlignment:MainAxisAlignment.spaceBetween,
+          children:const [ Text("Transactions",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16),),
+          Text("View More",style:TextStyle(fontWeight: FontWeight.bold,fontSize: 10,decoration: TextDecoration.underline, ),)],
+         ),
+         const SizedBox(height: 10,),
+         ListViewOfTransactions(),
         ],
-       ),
-       const SizedBox(height: 10,),
-
-       Card(
-        elevation:5,
-        shape:RoundedRectangleBorder(borderRadius:BorderRadius.circular(16)),
-        clipBehavior:Clip.hardEdge,
-        child:  MyBudget(icon:  Icons.attach_money_rounded, color:const Color(0xFFB7DEC9),secondaryColor:const Color(0xFF519872)),
-       ),
-       const SizedBox(height: 20,),
-       Row(
-        mainAxisAlignment:MainAxisAlignment.spaceBetween,
-        children:const [ Text("Transactions",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16),),
-        Text("View More",style:TextStyle(fontWeight: FontWeight.bold,fontSize: 10,decoration: TextDecoration.underline, ),)],
-       ),
-       const SizedBox(height: 10,),
-       ListViewOfTransactions(),
-      ],
+      ),
     );
   }
 }
