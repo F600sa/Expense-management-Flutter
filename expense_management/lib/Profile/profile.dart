@@ -13,9 +13,8 @@ class Profile extends StatefulWidget {
 class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+    return 
+       Scaffold(
         appBar: AppBar(
     
             // leadingWidth: 40,
@@ -26,30 +25,31 @@ class _ProfileState extends State<Profile> {
             ),
             toolbarHeight: 70,
             leadingWidth: 40,
-            backgroundColor: Colors.white,
+            backgroundColor: Color.fromARGB(255, 232, 231, 231),
             centerTitle: true,
             automaticallyImplyLeading: false,
             elevation: 0,
             actions: [
               Ink(
                   decoration: ShapeDecoration(
-                    color: Colors.green,
+                    // color: Colors.green,
                     shape: RoundedRectangleBorder(),
                   ),
-                  child: IconButton(onPressed: () {}, icon: Icon(Icons.settings)))
+                  child: IconButton(onPressed: () {}, icon: Icon(Icons.settings ,color: Color.fromARGB(255, 12, 103, 68))))
             ],
             leading: Ink(
                 decoration: ShapeDecoration(
-                  color: Colors.green,
+                  // color: Colors.green,
                   shape: RoundedRectangleBorder(),
                 ),
                 child: IconButton(
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    icon: Icon(Icons.arrow_back_ios)))),
+                    icon: Icon(Icons.arrow_back_ios,color: Color.fromARGB(255, 12, 103, 68))))),
         body: Column(
           children: [
+            Container(child:Text("text") ,),
             Container(
               // color: Colors.amber,
               height: 150,
@@ -147,7 +147,7 @@ class _ProfileState extends State<Profile> {
             
           ],
         ),
-      ),
-    );
+      );
+    
   }
 }

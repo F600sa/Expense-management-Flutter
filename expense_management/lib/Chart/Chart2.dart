@@ -10,6 +10,9 @@ import 'package:syncfusion_flutter_charts/sparkcharts.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:expense_management/Home/home_controller.dart';
 import 'package:expense_management/main.dart';
+import 'package:get/get.dart';
+
+
 
  var lists = [[2],[23],[23],[500]];
   var sum = lists.reduce((value, current) => value + current);
@@ -19,7 +22,7 @@ import 'package:expense_management/main.dart';
   var total_expenses;
   
 class Chart extends StatefulWidget {
-  
+
   const Chart({super.key});
 
   @override
@@ -28,12 +31,15 @@ class Chart extends StatefulWidget {
 }
 
 class _ChartState extends State<Chart> {
+
+      
    late List<GDPData> _chartData;
   @override
   void initState() {
     _chartData=GetChartData();
     super.initState();
   }
+  
   @override
   
   Widget build(BuildContext context) {
