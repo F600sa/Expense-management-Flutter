@@ -74,14 +74,11 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-<<<<<<< HEAD
-=======
   flutter_web_plugins:
     dependency: transitive
     description: flutter
     source: sdk
     version: "0.0.0"
->>>>>>> refs/remotes/origin/main
   get:
     dependency: "direct main"
     description:
@@ -89,8 +86,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.6.5"
-<<<<<<< HEAD
-=======
   hexcolor:
     dependency: "direct main"
     description:
@@ -98,7 +93,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.1"
->>>>>>> refs/remotes/origin/main
   intl:
     dependency: transitive
     description:
@@ -106,8 +100,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.17.0"
-<<<<<<< HEAD
-=======
   js:
     dependency: transitive
     description:
@@ -115,7 +107,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.6.4"
->>>>>>> refs/remotes/origin/main
   lints:
     dependency: transitive
     description:

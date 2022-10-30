@@ -31,10 +31,7 @@ class _ChartState extends State<Chart> {
   @override
   
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: 
-    Scaffold(
-      body:SingleChildScrollView(
+    return SingleChildScrollView(
         child: Container(
           padding:EdgeInsets.symmetric(vertical: 15,horizontal: 10) ,
           child: Column(
@@ -126,7 +123,7 @@ class _ChartState extends State<Chart> {
             ],
           ),
         ),
-      ),));
+      );
   }
   List<GDPData>GetChartData(){
     final List<GDPData>chartData=[
