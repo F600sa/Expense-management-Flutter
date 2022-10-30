@@ -1,6 +1,12 @@
 // ignore_for_file: prefer_const_constructors, unnecessary_new, avoid_print
 
+
 import 'package:expense_management/Chart/chart_screen.dart';
+
+import 'dart:ffi';
+
+import 'package:expense_management/Chart/Chart2.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'Goals/goals._screen.dart';
@@ -17,8 +23,7 @@ void main() {
   controller.add_shopping_list(
       200.00, false, DateTime.now(), "shopping", Icons.restaurant);
 
-  controller.add_restaurant_list(
-      100, false, DateTime.now(), "restaurant", Icons.bus_alert_sharp);
+
   runApp(MyApp());
 }
 
@@ -41,6 +46,7 @@ class _MyAppState extends State<MyApp> {
    int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
+
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'home',
@@ -89,7 +95,8 @@ class _MyAppState extends State<MyApp> {
           padding: const EdgeInsets.fromLTRB(15, 30, 15, 0),
           child: pageList.elementAt(selectedIndex),
         ),
-      )),
-    );
+      )));
+
+    
   }
 }
