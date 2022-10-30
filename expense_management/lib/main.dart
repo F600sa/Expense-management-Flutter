@@ -1,43 +1,106 @@
-
 // ignore_for_file: prefer_const_constructors, unnecessary_new, avoid_print
+
+
+import 'package:expense_management/Chart/chart_screen.dart';
 
 import 'dart:ffi';
 
 import 'package:expense_management/Chart/Chart2.dart';
+
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'Goals/goals._screen.dart';
 import 'Home/home_controller.dart';
+
 import 'Profile/profile.dart';
+
+import 'Home/home_screen.dart';
+import 'Home/widgets/add_transaction.dart';
+import 'Profile/profile_screen.dart';
+
 void main() {
-  C sho = new C();
-  sho.add_shopping_list(200.00, true, DateTime.now(), "shopping", "shopping");
-  sho.add_shopping_list(100.00, false, DateTime.now(), "shopping", "shopping");
-
-  sho.add_bill_list(100, false, DateTime.now(), "bill", "bill");
-  sho.add_bill_list(100, false, DateTime.now(), "bill", "bill");
-
-  sho.add_restaurant_list(20, true, DateTime.now(), "restaurant", "restaurant");
-  sho.add_restaurant_list(20, true, DateTime.now(), "restaurant", "restaurant");
-
-  sho.add_transport_list(50, true, DateTime.now(), "transport", "transport");
-
-  sho.add_another_list(50, true, DateTime.now(), "another", "another");
-  print(sho.total_expenses_fun());
-  sho.total_expenses_fun();
-  
-  
+  Home_Controller controller = Get.put<Home_Controller>(Home_Controller(),
+      tag: "home_data", permanent: true);
+  controller.add_shopping_list(
+      200.00, true, DateTime.now(), "shopping", Icons.shopping_bag);
+  controller.add_shopping_list(
+      200.00, false, DateTime.now(), "shopping", Icons.restaurant);
   runApp(MyApp());
   
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MyApp extends StatefulWidget {
+  MyApp({super.key});
 
-  // This widget is the root of your application.
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  List<Widget> pageList = [
+    
+    HomeScreen(),
+    GoalsScreen(),
+    AddTransaction(),
+    ChartScreen(),
+    ProfileScreen(),
+  ];
+   int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+
+
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home:Chart(),
-    );
+      title: 'home',
+      // initialRoute: "/home",
+      defaultTransition: Transition.zoom,
+      home: SafeArea(
+          child: Scaffold(
+      
+        bottomNavigationBar: NavigationBar(
+          selectedIndex: selectedIndex,
+          onDestinationSelected: (index) => setState((){
+            selectedIndex = index;
+          }),
+          backgroundColor: Colors.white,
+          destinations: const [
+            NavigationDestination(
+              icon: Icon(
+                Icons.home,
+                color: Color(0xFF519872),
+              ),
+              label: 'Home',
+            ),
+            NavigationDestination(
+                icon: Icon(Icons.radar, color: Color(0xFF519872)),
+                label: 'Goals'),
+            NavigationDestination(
+                icon: Icon(
+                  Icons.add_circle_rounded,
+                  color: Color(0xFF519872),
+                  size: 60,
+                ),
+                label: ''),
+            NavigationDestination(
+                icon: Icon(Icons.show_chart, color: Color(0xFF519872)),
+                label: 'Charts'),
+            NavigationDestination(
+                icon: Icon(
+                  Icons.person,
+                  color: Color(0xFF519872),
+                ),
+                label: 'Profile'),
+          ],
+        ),
+          body: Container(
+          color: Colors.white,
+          padding: const EdgeInsets.fromLTRB(15, 30, 15, 0),
+          child: pageList.elementAt(selectedIndex),
+        ),
+      )));
+
+    
+
   }
 }

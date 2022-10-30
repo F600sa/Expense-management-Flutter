@@ -1,4 +1,5 @@
 import 'package:expense_management/Home/expenses_calsses.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'dart:ffi';
@@ -14,7 +15,7 @@ import 'package:expense_management/main.dart';
   var sum = lists.reduce((value, current) => value + current);
    var a1 = sum.reduce((value, current) => value + current);
    double x=75.0;
-  C a32 =new C();
+ 
   var total_expenses;
   
 class Chart extends StatefulWidget {
@@ -36,18 +37,10 @@ class _ChartState extends State<Chart> {
   @override
   
   Widget build(BuildContext context) {
-    return SafeArea(
-      
-      child: 
-    Scaffold(
-      // appBar: AppBar(title: Text("Chart",style: 
-      // TextStyle(color: HexColor("#519872"),
-      // fontSize: 24,
-      // fontWeight: FontWeight.w600
-      // ),),
-      // backgroundColor: Colors.white,
-      // shadowColor: Colors.white,),
-      body:SingleChildScrollView(
+
+    return SingleChildScrollView(
+        
+        // scrollDirection: Axis.horizontal,
         child: Container(
           padding:EdgeInsets.symmetric(vertical: 10,horizontal: 10) ,
           child: Column(
@@ -130,7 +123,7 @@ class _ChartState extends State<Chart> {
                             child: Row(            
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
-                          Image.network("https://i.ibb.co/N60HQdj/Vector0.png",height: 50,width: 40,),
+                          Image.network("https://i.ibb.co/N60HQdj/Vector0.png",height: 50,width: 30,),
                                                   ],
                                                 ),
                                               ),
@@ -199,7 +192,7 @@ class _ChartState extends State<Chart> {
             ],
           ),
         ),
-      ),));
+      );
   }
   List<GDPData>GetChartData(){
     final List<GDPData>chartData=[

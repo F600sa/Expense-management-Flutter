@@ -41,14 +41,14 @@ class _MyWidgetState extends State<MyWidget> {
                 
                 children: [
                   SizedBox(
-                    // width: 400,
+                    // width: 4900,
                     height: 100,
                     child: Row(
                       // mainAxisAlignment: MainAxisAlignment.start,
                       // crossAxisAlignment: CrossAxisAlignment.,
                       children: [
                           
-                    Container(width:80,
+                    Container(width:40,
                       child: Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                         children: [
@@ -64,7 +64,7 @@ class _MyWidgetState extends State<MyWidget> {
                       ),
                     ),
                       Container(
-                        width:95 ,
+                        width:130 ,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -77,8 +77,8 @@ class _MyWidgetState extends State<MyWidget> {
                       ),
                       
                       Container(
-                        width: 200,
-                        height: 75,
+                        width: 150,
+                        height: 70,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           crossAxisAlignment: CrossAxisAlignment.end,
