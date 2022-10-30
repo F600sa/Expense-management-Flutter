@@ -14,8 +14,22 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return 
-        
-            /* actions: [
+       Scaffold(
+        appBar: AppBar(
+    
+            // leadingWidth: 40,
+            title: Text(
+              "Profile",
+              style: TextStyle(
+                  color: Color.fromARGB(255, 12, 103, 68), fontSize: 25),
+            ),
+            toolbarHeight: 70,
+            leadingWidth: 40,
+            backgroundColor: Colors.white,
+            centerTitle: true,
+            automaticallyImplyLeading: false,
+            elevation: 0,
+            actions: [
               Ink(
                   decoration: ShapeDecoration(
                     // color: Colors.green,
@@ -32,13 +46,9 @@ class _ProfileState extends State<Profile> {
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    icon: Icon(Icons.arrow_back_ios,color: Color.fromARGB(255, 12, 103, 68)))) */
-                    
-        Column(
+                    icon: Icon(Icons.arrow_back_ios,color: Color.fromARGB(255, 12, 103, 68))))),
+        body: Column(
           children: [
-            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [Text("data"),Text("data"),Text("data")],
-            ),
             Container(
               // color: Colors.amber,
               height: 150,
@@ -135,7 +145,7 @@ class _ProfileState extends State<Profile> {
               child: Row(children: [WidProfile(text: "Language", image: "https://img.icons8.com/material-outlined/24/519872/language.png")],)),
             
           ],
-        
+        ),
       );
     
   }

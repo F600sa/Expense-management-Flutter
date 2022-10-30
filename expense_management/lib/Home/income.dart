@@ -9,7 +9,7 @@ class MyIncomPage extends StatefulWidget {
    MyIncomPage({super.key, required this.title});
   Home_Controller controller = Get.put<Home_Controller>(Home_Controller(),
       tag: "home_data", permanent: true);
-
+      
   final String title;
 
   @override
@@ -133,6 +133,7 @@ class _MyIncomPageState extends State<MyIncomPage> {
               ),
               child: MaterialButton(
                 onPressed: () {
+                  
                   print('income:' + _incomeController.text);
                   print('date:' + _dateController.text);
                   // route me
