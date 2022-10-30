@@ -11,18 +11,17 @@ class AddTransaction extends StatefulWidget {
 }
 
 class _AddTransactionState extends State<AddTransaction> {
-   // Initial Selected Value
-  String dropdownvalue = 'Item 1';  
- 
+  // Initial Selected Value
+  String dropdownvalue = 'Shopping';
+
   // List of items in our dropdown menu
   var items = [
-    'Item 1',
-    'Item 2',
-    'Item 3',
-    'Item 4',
-    'Item 5',
+    'Shopping',
+    'Restaurant',
+    'Transport',
+    'Bill',
+    'Another',
   ];
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -84,17 +83,27 @@ class _AddTransactionState extends State<AddTransaction> {
               items: items.map((String items) {
                 return DropdownMenuItem(
                   value: items,
-                  child: Text(items),
+                  child: Row(
+                    children: [
+                      Icon(Icons.mail_lock_outlined),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                        items,
+                        style: const TextStyle(fontWeight: FontWeight.w400),
+                      )
+                    ],
+                  ),
                 );
               }).toList(),
               // After selecting the desired option,it will
               // change button value to selected value
               onChanged: (String? newValue) {
                 setState(() {
-                   dropdownvalue = newValue!;
+                  dropdownvalue = newValue!;
                 });
               }),
-
           const SizedBox(
             height: 20,
           ),
@@ -106,20 +115,30 @@ class _AddTransactionState extends State<AddTransaction> {
           const SizedBox(
             height: 20,
           ),
-          DateTimeFormField(
-            decoration: const InputDecoration(
-              hintStyle: TextStyle(color: Colors.black45),
-              errorStyle: TextStyle(color: Colors.redAccent),
-              border: OutlineInputBorder(),
-              suffixIcon: Icon(Icons.event_note),
-              labelText: 'Only time',
+          TextFormField(
+            style: TextStyle(
+              color: Color.fromRGBO(81, 152, 114, 1),
+              fontSize: 22,
             ),
-            mode: DateTimeFieldPickerMode.time,
-            autovalidateMode: AutovalidateMode.always,
-            validator: (e) =>
-                (e?.day ?? 0) == 1 ? 'Please not the first day' : null,
-            onDateSelected: (DateTime value) {
-              print(value);
+            cursorColor: const Color.fromARGB(255, 45, 136, 87),
+            decoration: const InputDecoration(
+              // icon: Icon(Icons.calendar_today_rounded),
+              prefixIcon: Icon(Icons.calendar_today),
+              hintText: 'Input date',
+              hintStyle: TextStyle(color: Colors.grey),
+              border: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.grey),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.grey),
+              ),
+            ),
+            onTap: () async {
+              DateTime? pickeddate = await showDatePicker(
+                  context: context,
+                  initialDate: DateTime.now(),
+                  firstDate: DateTime(2000),
+                  lastDate: DateTime(2101));
             },
           ),
           const SizedBox(
