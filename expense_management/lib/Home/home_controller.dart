@@ -1,8 +1,11 @@
 // ignore_for_file: non_constant_identifier_names, avoid_print ,prefer_interpolation_to_compose_strings, unnecessary_new
 
-import 'expenses_calsses.dart';
+import 'package:flutter/material.dart';
 
-class C {
+import 'expenses_calsses.dart';
+import 'package:get/get.dart';
+
+class Home_Controller extends GetxController {
   /* Expenses */
   List expenses = [];
 
@@ -22,6 +25,7 @@ class C {
   }
 
   double total_expenses_fun() {
+    total_expenses = 0;
     for (var ex in expenses) {
       total_expenses += ex.price;
     }
@@ -29,19 +33,21 @@ class C {
   }
 
   /* income and  current_balance saving */
-  double income = 6000;
+  double income = 10000;
 
   double spending_fun(
-    double expenses,
     double goals,
   ) {
+    double expenses = total_expenses_fun();
     return expenses + goals;
   }
 
   double current_balance_fun(
     double income,
-    double spending,
+    double goals,
   ) {
+    double spending = total_expenses_fun() + goals;
+
     return income - spending;
   }
 
@@ -57,7 +63,7 @@ class C {
   double total_shopping = 0;
 
   void add_shopping_list(
-      double price, bool isCash, DateTime date, String note, String icon) {
+      double price, bool isCash, DateTime date, String note, IconData icon) {
     shopping.add(new Shopping(price, isCash, date, note, icon));
     expenses.add(new Shopping(price, isCash, date, note, icon));
   }
@@ -87,7 +93,7 @@ class C {
   double total_restaurant = 0;
 
   void add_restaurant_list(
-      double price, bool isCash, DateTime date, String note, String icon) {
+      double price, bool isCash, DateTime date, String note, IconData icon) {
     restaurant.add(new Restaurant(price, isCash, date, note, icon));
     expenses.add(new Restaurant(price, isCash, date, note, icon));
   }
@@ -117,7 +123,7 @@ class C {
   double total_transport = 0;
 
   void add_transport_list(
-      double price, bool isCash, DateTime date, String note, String icon) {
+      double price, bool isCash, DateTime date, String note, IconData icon) {
     transport.add(new Transport(price, isCash, date, note, icon));
     expenses.add(new Transport(price, isCash, date, note, icon));
   }
@@ -147,7 +153,7 @@ class C {
   double total_bill = 0;
 
   void add_bill_list(
-      double price, bool isCash, DateTime date, String note, String icon) {
+      double price, bool isCash, DateTime date, String note, IconData icon) {
     bill.add(new Bill(price, isCash, date, note, icon));
     expenses.add(new Bill(price, isCash, date, note, icon));
   }
@@ -177,7 +183,7 @@ class C {
   double total_another = 0;
 
   void add_another_list(
-      double price, bool isCash, DateTime date, String note, String icon) {
+      double price, bool isCash, DateTime date, String note, IconData icon) {
     another.add(new Another(price, isCash, date, note, icon));
     expenses.add(new Another(price, isCash, date, note, icon));
   }
@@ -200,5 +206,23 @@ class C {
       total_another += at.price;
     }
     return total_another;
+  }
+
+  @override
+  void onInit() {
+    super.onInit();
+    print("onInit");
+  }
+
+  @override
+  void onReady() {
+    super.onReady();
+    print("onReady");
+  }
+
+  @override
+  void onClose() {
+    super.onClose();
+    print("onClose");
   }
 }
