@@ -5,13 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:syncfusion_flutter_charts/sparkcharts.dart';
 import 'package:hexcolor/hexcolor.dart';
+
 class MyWidget extends StatefulWidget {
   final String text; 
   final String text2; 
-  final String image;
-  // final String color;
+  final IconData icons2;
+  final String color23;
   final String color1;
-  const MyWidget({required this.color1,required this.text,required this.text2,required this.image,super.key});
+  const MyWidget({required this.color23,required this.color1,required this.text,required this.text2,required this.icons2,super.key});
 
   @override
   State<MyWidget> createState() => _MyWidgetState();
@@ -24,7 +25,7 @@ class _MyWidgetState extends State<MyWidget> {
             
             
 
-          padding:EdgeInsets.symmetric(vertical: 12,horizontal: 5) ,
+          padding:EdgeInsets.symmetric(vertical: 3,horizontal: 5) ,
           decoration: BoxDecoration( borderRadius: BorderRadius.circular(31)),
           // clipBehavior: Clip.antiAliasWithSaveLayer,
           child: Column(
@@ -32,6 +33,7 @@ class _MyWidgetState extends State<MyWidget> {
             children: [
             
             Card(
+              
               shape: BeveledRectangleBorder(
               borderRadius: BorderRadius.circular(9.0),
   ),
@@ -40,7 +42,7 @@ class _MyWidgetState extends State<MyWidget> {
                 children: [
                   SizedBox(
                     // width: 400,
-                    height: 80,
+                    height: 100,
                     child: Row(
                       // mainAxisAlignment: MainAxisAlignment.start,
                       // crossAxisAlignment: CrossAxisAlignment.,
@@ -55,7 +57,8 @@ class _MyWidgetState extends State<MyWidget> {
                             
                             decoration: BoxDecoration( borderRadius: BorderRadius.circular(10)),
 // color:HexColor(this.widget.color),
-                            child: Image.network(this.widget.image,height: 75,width: 75,)),
+                            child:Icon(this.widget.icons2,color:HexColor(this.widget.color23,) ,),
+                          )
                         ],
                         
                       ),

@@ -85,7 +85,7 @@ class C {
 /* Restaurant */
   List restaurant = [];
   double total_restaurant = 0;
-
+  
   void add_restaurant_list(
       double price, bool isCash, DateTime date, String note, String icon) {
     restaurant.add(new Restaurant(price, isCash, date, note, icon));
@@ -202,3 +202,4 @@ class C {
     return total_another;
   }
 }
+

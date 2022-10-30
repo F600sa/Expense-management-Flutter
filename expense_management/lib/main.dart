@@ -6,7 +6,7 @@ import 'dart:ffi';
 import 'package:expense_management/Chart/Chart2.dart';
 import 'package:flutter/material.dart';
 import 'Home/home_controller.dart';
-
+import 'Profile/profile.dart';
 void main() {
   C sho = new C();
   sho.add_shopping_list(200.00, true, DateTime.now(), "shopping", "shopping");
@@ -22,7 +22,11 @@ void main() {
 
   sho.add_another_list(50, true, DateTime.now(), "another", "another");
   print(sho.total_expenses_fun());
+  sho.total_expenses_fun();
+  
+  
   runApp(MyApp());
+  
 }
 
 class MyApp extends StatelessWidget {
@@ -32,6 +36,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home:Chart(),
     );
   }
