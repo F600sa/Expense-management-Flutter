@@ -14,43 +14,9 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return 
-
        Scaffold(
-        
-            
-
-        
-            /* actions: [
->>>>>>> refs/remotes/origin/main
-              Ink(
-                  decoration: ShapeDecoration(
-                    // color: Colors.green,
-                    shape: RoundedRectangleBorder(),
-                  ),
-                  child: IconButton(onPressed: () {}, icon: Icon(Icons.settings ,color: Color.fromARGB(255, 12, 103, 68))))
-            ],
-            leading: Ink(
-                decoration: ShapeDecoration(
-                  // color: Colors.green,
-                  shape: RoundedRectangleBorder(),
-                ),
-                child: IconButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-
-                    icon: Icon(Icons.arrow_back_ios,color: Color.fromARGB(255, 12, 103, 68))))),
         body: Column(
           children: [
-            Container(child:Text("text") ,),
-
-                    icon: Icon(Icons.arrow_back_ios,color: Color.fromARGB(255, 12, 103, 68)))) */
-                    
-       body: Column(
-          children: [
-            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            // children: [Text("data"),Text("data"),Text("data")],
-            ),
 
             Container(
               // color: Colors.amber,
@@ -148,7 +114,10 @@ class _ProfileState extends State<Profile> {
               child: Row(children: [WidProfile(text: "Language", image: "https://img.icons8.com/material-outlined/24/519872/language.png")],)),
             
           ],
+
         ));
+
+     
     
   }
 }

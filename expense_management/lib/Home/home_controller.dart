@@ -33,7 +33,8 @@ class Home_Controller extends GetxController {
   }
 
   /* income and  current_balance saving */
-  double income = 10000;
+  double  income = 10000;
+  var incomeCh =10000.obs ;
 
   double spending_fun(
     double goals,
