@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 
 class Home_Controller extends GetxController {
   /* setting */
-  final dropdownValue = "Shopping".obs;
+  final dropdownValue = "التسوق".obs;
   void onchangedropdownValue(String? dropdownvalue) {
     dropdownValue.value = dropdownvalue!;
   }
