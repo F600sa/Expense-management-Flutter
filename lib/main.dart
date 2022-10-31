@@ -69,7 +69,7 @@ class Navigation extends StatefulWidget {
 
 class _NavigationState extends State<Navigation> {
   List<Widget> pageList = [
-    HomeScreen(),
+     HomeScreen(),
     GoalsScreen(),
     AddTransaction(),
     Transaction(),
