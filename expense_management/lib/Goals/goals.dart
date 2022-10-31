@@ -64,7 +64,7 @@ class _GoalsPageState extends State<GoalsPage> {
           ? buildGoals()
           : const Center(
               child: Text(
-                "Add Goal",
+                "Add ",
                 style: TextStyle(
                   color: Color.fromRGBO(81, 152, 114, 1),
                 ),
