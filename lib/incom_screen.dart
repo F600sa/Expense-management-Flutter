@@ -164,9 +164,9 @@ class _MyIncomPageState extends State<MyIncomPage> {
                   print('income:' + _incomeController.text);
                   print('date:' + _dateController.text);
 
-                  // Navigator.of(context).push(MaterialPageRoute(
-                  //     builder: (context) =>
-                  //         HomeScreen(income: _incomeController.text)));
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) =>
+                          HomeScreen(income: _incomeController.text)));
 
                   SimpleDialog(context);
                
