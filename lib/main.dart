@@ -6,11 +6,20 @@ import 'package:get/get.dart';
 import 'Goals/goals_screen.dart';
 import 'Home/home_screen.dart';
 import 'Profile/profile_screen.dart';
-import 'Transaction/add_transaction.dart';
+import 'Transaction/add_transaction_screen.dart';
 import 'Transaction/transaction_screen.dart';
+import 'jaeeb_controller.dart';
 
 void main() {
-  
+  Home_Controller controller = Get.put<Home_Controller>(Home_Controller(),
+      tag: "home_data", permanent: true);
+  controller.add_shopping_list(200.00, true, DateTime.now(), "shopping");
+  controller.add_transport_list(200.00, false, DateTime.now(), "shopping");
+  controller.add_another_list(200.00, false, DateTime.now(), "shopping");
+  controller.add_transport_list(200.00, false, DateTime.now(), "shopping");
+  controller.add_restaurant_list(200.00, false, DateTime.now(), "shopping");
+  controller.add_coffee_list(200.00, false, DateTime.now(), "shopping");
+  controller.add_bill_list(200.00, false, DateTime.now(), "shopping");
 
   runApp(MyApp());
 }
@@ -30,7 +39,7 @@ class _MyAppState extends State<MyApp> {
         primarySwatch: Colors.green,
       ),
       debugShowCheckedModeBanner: false,
-      title: 'Jaeeb',
+      title: 'جيب',
       // initialRoute: "/home",
       defaultTransition: Transition.zoom,
       home: Navigation(),
@@ -49,7 +58,7 @@ class _NavigationState extends State<Navigation> {
   List<Widget> pageList = [
     HomeScreen(),
     GoalsScreen(),
-    AddTransaction(),
+    Container(),
     Transaction(),
     ProfileScreen(),
   ];
@@ -64,6 +73,12 @@ class _NavigationState extends State<Navigation> {
         selectedIndex: selectedIndex,
         onDestinationSelected: (index) => setState(() {
           selectedIndex = index;
+          if (selectedIndex == 2) {
+            Navigator.push(
+              context,MaterialPageRoute(
+                builder: (context) =>  AddTransaction()),
+                );  
+          }
         }),
         backgroundColor: Colors.white,
         destinations: const [
@@ -75,8 +90,7 @@ class _NavigationState extends State<Navigation> {
             label: '',
           ),
           NavigationDestination(
-              icon: Icon(Icons.radar, color: Color(0xFF519872)),
-              label: ''),
+              icon: Icon(Icons.radar, color: Color(0xFF519872)), label: ''),
           NavigationDestination(
               icon: Icon(
                 Icons.add_circle_rounded,
@@ -85,8 +99,7 @@ class _NavigationState extends State<Navigation> {
               ),
               label: ''),
           NavigationDestination(
-              icon: Icon(Icons.paid, color: Color(0xFF519872)),
-              label: ''),
+              icon: Icon(Icons.paid, color: Color(0xFF519872)), label: ''),
           NavigationDestination(
               icon: Icon(
                 Icons.person,
@@ -103,5 +116,3 @@ class _NavigationState extends State<Navigation> {
     ));
   }
 }
-
-

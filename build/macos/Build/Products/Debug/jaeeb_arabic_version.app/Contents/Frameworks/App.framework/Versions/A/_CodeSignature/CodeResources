@@ -30,7 +30,11 @@
 		</data>
 		<key>Resources/flutter_assets/kernel_blob.bin</key>
 		<data>
+<<<<<<< HEAD
 		PxGMMo1NquVNrfnnpK2nKlNHjSk=
+=======
+		o01JKTzHFD+YRZ7s5WgjUh03BhQ=
+>>>>>>> refs/remotes/origin/main
 		</data>
 		<key>Resources/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -38,7 +42,11 @@
 		</data>
 		<key>Resources/flutter_assets/shaders/ink_sparkle.frag</key>
 		<data>
+<<<<<<< HEAD
 		czJU2if3+lN3CQuwJUighT/ngLg=
+=======
+		Jx8he/mDV0D9HdHBu/9SiO7OwOE=
+>>>>>>> refs/remotes/origin/main
 		</data>
 		<key>Resources/flutter_assets/vm_snapshot_data</key>
 		<data>
@@ -93,7 +101,11 @@
 		<dict>
 			<key>hash2</key>
 			<data>
+<<<<<<< HEAD
 			5xsnGKsHsl2AozUcm4pohkGGbPmx7QZbwxWKEHJrYfc=
+=======
+			1jJoRoDOftLD3PgiRZN3oLS6GuJoSpH/mvU809XAj1o=
+>>>>>>> refs/remotes/origin/main
 			</data>
 		</dict>
 		<key>Resources/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
@@ -107,7 +119,11 @@
 		<dict>
 			<key>hash2</key>
 			<data>
+<<<<<<< HEAD
 			v9YnaIgd8wPMtgVwkOdphR0Cyu2jZx7aMXtPx5wEPws=
+=======
+			PzVuP/D4Qohzvnp18w7Y9+2BMYzNmOmS2GzRmhszOjQ=
+>>>>>>> refs/remotes/origin/main
 			</data>
 		</dict>
 		<key>Resources/flutter_assets/vm_snapshot_data</key>
