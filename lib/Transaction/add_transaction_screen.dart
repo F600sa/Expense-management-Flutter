@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
 
 import '../jaeeb_controller.dart';
 import '../main.dart';
@@ -98,22 +99,31 @@ class Stricture extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               // ignore: prefer_const_literals_to_create_immutables
               children: [
-                
                 Button(
-
                   color1: Color(0xFF519872),
                   color2: Color(0xFFB7DEC9),
                   name: 'دخل اضافي',
                   icon: Icons.arrow_circle_down,
                 ),
-
-
                 Button(
                   color1: Color(0xFFEBA90D),
                   color2: Color(0xFFFEF0D0),
                   name: 'مصروفات',
                   icon: Icons.arrow_circle_up,
+                ),
+/*                    Obx(() =>Button(
+                  color1: Color(0xFF519872),
+                  color2: Color(0xFFB7DEC9),
+                  name: 'دخل اضافي',
+                  icon: Icons.arrow_circle_down,
+                ),),
+                Obx(()=>Button(
+                  color1: Color(0xFFEBA90D),
+                  color2: Color(0xFFFEF0D0),
+                  name: 'مصروفات',
+                  icon: Icons.arrow_circle_up,
                 )
+                ), */
               ],
             ),
             SizedBox(
@@ -268,9 +278,9 @@ class Stricture extends StatelessWidget {
   }
 }
 
-class Button extends StatelessWidget {
+class Button extends StatefulWidget {
   Color color1;
-  Color color2;
+  Color color2 = Color(0xFF519872);
   String name;
   IconData icon;
   Button({
@@ -280,39 +290,56 @@ class Button extends StatelessWidget {
     required this.icon,
     super.key,
   });
+
+  @override
+  State<Button> createState() => _ButtonState();
+}
+
+class _ButtonState extends State<Button> {
   Home_Controller controller = Get.put<Home_Controller>(Home_Controller(),
       tag: "home_data", permanent: true);
+
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(1),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(6),
-          color: color2,
-          border: Border.all(color: color1)),
+          color: widget.color2,
+          border: Border.all(color: widget.color1)),
       height: MediaQuery.of(context).size.height * .08,
       width: MediaQuery.of(context).size.width * .41,
-      child:TextButton(
-          onPressed: () {
-             print(controller.isExpenses.value);
+      child: TextButton(
+        onPressed: () {
+          if (widget.color1 == Color(0xFF519872) &&
+              widget.color2 == Color(0xFFB7DEC9)) {
+            widget.color1 == Color(0xFFB7DEC9);
+            widget.color2 == Color(0xFF519872);
             controller.onPressedisExpenses(false);
-            print(controller.isExpenses.value);
-          },
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Icon(
-                icon,
-                color: color1,
-              ),
-              Text(
-                name,
-                style: TextStyle(color: color1, fontSize: 17),
-              ),
-            ],
-          ),
+            
+            setState(() {});
+          } else if (widget.color1 == Color(0xFFEBA90D) &&
+              widget.color2 == Color(0xFFFEF0D0)) {
+            widget.color1 == Color(0xFFFEF0D0);
+            widget.color2 == Color(0xFFEBA90D);
+            
+            setState(() {});
+          }
+        },
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Icon(
+              widget.icon,
+              color: widget.color1,
+            ),
+            Text(
+              widget.name,
+              style: TextStyle(color: widget.color1, fontSize: 17),
+            ),
+          ],
         ),
-      
+      ),
     );
   }
 }

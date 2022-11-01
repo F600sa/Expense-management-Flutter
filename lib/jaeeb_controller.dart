@@ -1,4 +1,4 @@
-// ignore_for_file: non_constant_identifier_names, avoid_print ,prefer_interpolation_to_compose_strings, unnecessary_new, camel_case_types
+// ignore_for_file: non_constant_identifier_names, avoid_print ,prefer_interpolation_to_compose_strings, unnecessary_new, camel_case_types, prefer_const_constructors
 
 import 'package:flutter/material.dart';
 
@@ -13,11 +13,10 @@ class Home_Controller extends GetxController {
   }
 
   final isExpenses = true.obs;
-  void onPressedisExpenses(bool? isIt) {
-    isExpenses.value = isIt!;
-  }
-
-  /* Expenses */
+ void onPressedisExpenses(bool? isIt ){
+  isExpenses.value=isIt!;
+ }
+   /* Expenses */
   List expenses = [];
 
   double total_expenses = 0;
