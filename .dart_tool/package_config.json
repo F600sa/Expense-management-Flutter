@@ -302,7 +302,11 @@
       "languageVersion": "2.18"
     }
   ],
+<<<<<<< HEAD
   "generated": "2022-11-01T14:11:28.818566Z",
+=======
+  "generated": "2022-11-01T13:33:27.234087Z",
+>>>>>>> refs/remotes/origin/main
   "generator": "pub",
   "generatorVersion": "2.18.2"
 }

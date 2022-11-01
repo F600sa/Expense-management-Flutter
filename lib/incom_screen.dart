@@ -168,7 +168,7 @@ class _MyIncomPageState extends State<MyIncomPage> {
                   //     builder: (context) =>
                   //         HomeScreen(income: _incomeController.text)));
 
-                  SimpleDialog(context);
+                  // SimpleDialog(context);
                
                 },
                 child: Text('التالي',
