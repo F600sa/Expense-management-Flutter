@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:jaeeb_arabic_version/Home/splash.dart';
 
 import 'Goals/goals_screen.dart';
 import 'Home/home_screen.dart';
