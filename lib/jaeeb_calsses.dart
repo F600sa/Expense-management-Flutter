@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 
 class Shopping {
   double? price;
-  bool? isCash;
+  bool? isExpenses;
   DateTime? date;
   String? note;
   IconData? icon=Icons.store;
-  String type = "Shopping";
-  Shopping(double price, bool isCash, DateTime date,String note) {
+  String type = "التسوق";
+  Shopping(double price, bool isExpenses, DateTime date,String note) {
     this.date = date;
-    this.isCash = isCash;
+    this.isExpenses = isExpenses;
     this.price = price;
     this.note = note;
     this.icon = icon;
@@ -21,42 +21,42 @@ class Shopping {
 
 class Restaurant {
   double? price;
-  bool? isCash;
+  bool? isExpenses;
   DateTime? date;
   String? note;
   IconData? icon=Icons.restaurant_menu;
-  String type = "Restaurant";
-  Restaurant(double price, bool isCash, DateTime date,String note) {
+  String type = "المطعم";
+  Restaurant(double price, bool isExpenses, DateTime date,String note) {
     this.date = date;
-    this.isCash = isCash;
+    this.isExpenses = isExpenses;
     this.price = price;
     this.note = note;
   }
 }
 class Coffee {
   double? price;
-  bool? isCash;
+  bool? isExpenses;
   DateTime? date;
   String? note;
   IconData? icon=Icons.local_cafe;
-  String type = "Coffee";
-  Coffee(double price, bool isCash, DateTime date,String note) {
+  String type = "قهوة";
+  Coffee(double price, bool isExpenses, DateTime date,String note) {
     this.date = date;
-    this.isCash = isCash;
+    this.isExpenses = isExpenses;
     this.price = price;
     this.note = note;
   }
 }
 class Transport {
   double? price;
-  bool? isCash;
+  bool? isExpenses;
   DateTime? date;
   String? note;
   IconData? icon=Icons.directions_bus;
-  String type = "Transport";
-  Transport(double price, bool isCash, DateTime date,String note) {
+  String type = "النقل";
+  Transport(double price, bool isExpenses, DateTime date,String note) {
     this.date = date;
-    this.isCash = isCash;
+    this.isExpenses = isExpenses;
     this.price = price;
     this.note = note;
   }
@@ -64,15 +64,15 @@ class Transport {
 
 class Bill {
   double? price;
-  bool? isCash;
+  bool? isExpenses;
   DateTime? date;
   String? note;
   IconData? icon=Icons.receipt_long;
-  String type = "Bill";
+  String type = "فواتير";
 
-  Bill(double price, bool isCash, DateTime date,String note) {
+  Bill(double price, bool isExpenses, DateTime date,String note) {
     this.date = date;
-    this.isCash = isCash;
+    this.isExpenses = isExpenses;
     this.price = price;
     this.note = note;
     this.icon = icon;
@@ -81,15 +81,15 @@ class Bill {
 
 class Another {
   double? price;
-  bool? isCash;
+  bool? isExpenses;
   DateTime? date;
   String? note;
   IconData? icon=Icons.control_point;
-  String type = "Another";
+  String type = "اخر";
 
-  Another(double price, bool isCash, DateTime date,String note) {
+  Another(double price, bool isExpenses, DateTime date,String note) {
     this.date = date;
-    this.isCash = isCash;
+    this.isExpenses = isExpenses;
     this.price = price;
     this.note = note;
   }

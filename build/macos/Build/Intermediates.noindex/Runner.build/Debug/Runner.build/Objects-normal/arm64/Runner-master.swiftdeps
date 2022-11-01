@@ -1,8 +1,8 @@
 version: "Apple Swift version 5.7 (swiftlang-5.7.0.127.4 clang-1400.0.29.50)"
 options: "73c50665ba3db36d801de4384fe62435d899660a15fe21b22b226a6640fcbc6e"
-build_start_time: [1667256043, 871498107]
-build_end_time: [1667256044, 749377012]
+build_start_time: [1667282080, 776451110]
+build_end_time: [1667282083, 570386886]
 inputs:
-  "/Users/norahaltamimi/Desktop/jaeeb_arabic_version/macos/Flutter/GeneratedPluginRegistrant.swift": [1667256039, 195631504]
+  "/Users/norahaltamimi/Desktop/jaeeb_arabic_version/macos/Flutter/GeneratedPluginRegistrant.swift": [1667282071, 749184131]
   "/Users/norahaltamimi/Desktop/jaeeb_arabic_version/macos/Runner/AppDelegate.swift": [1664987375, 0]
   "/Users/norahaltamimi/Desktop/jaeeb_arabic_version/macos/Runner/MainFlutterWindow.swift": [1664987375, 0]

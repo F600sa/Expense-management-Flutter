@@ -123,15 +123,11 @@ class CardTransaction extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Text(
-                      controller.expenses[index].price.toInt().toString()+" SAR",
+                      controller.expenses[index].price.toInt().toString()+" ريال",
                       style:
                           TextStyle(color:const Color(0xFFEBA90D) ,fontSize: 16, fontWeight: FontWeight.bold),
                     ),
-                    Text(
-                      "In Cash",
-                      style:
-                          TextStyle(fontSize: 12, ),
-                    ),
+                    
                   ],
                 ),
           ],

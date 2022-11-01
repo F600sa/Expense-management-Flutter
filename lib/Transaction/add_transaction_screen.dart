@@ -1,14 +1,13 @@
 // ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors, unnecessary_new
 
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../jaeeb_controller.dart';
+import '../main.dart';
 
 class AddTransaction extends StatelessWidget {
-    const AddTransaction({super.key});
+  const AddTransaction({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,21 +23,22 @@ class AddTransaction extends StatelessWidget {
 }
 
 class Stricture extends StatelessWidget {
-   Stricture({super.key});
+  Stricture({super.key});
   Home_Controller controller = Get.put<Home_Controller>(Home_Controller(),
       tag: "home_data", permanent: true);
   TextEditingController priceController = TextEditingController();
+  TextEditingController dateController = TextEditingController();
 
   // List of items in our dropdown menu
   List<Item> itemList = [
-    new Item('التسوق',Icons.store),
-    new Item( 'مطعم',Icons.restaurant_menu),
-    new Item('قهوة',Icons.local_cafe),
-    new Item('نقل',Icons.directions_bus),
-    new Item('فواتير',Icons.receipt_long),
-    new Item('اخر',Icons.control_point),
+    new Item('التسوق', Icons.store),
+    new Item('مطعم', Icons.restaurant_menu),
+    new Item('قهوة', Icons.local_cafe),
+    new Item('نقل', Icons.directions_bus),
+    new Item('فواتير', Icons.receipt_long),
+    new Item('اخر', Icons.control_point),
   ];
-    String dropdownValue = 'التسوق';
+  String dropdownValue = 'التسوق';
 
   @override
   Widget build(BuildContext context) {
@@ -55,14 +55,20 @@ class Stricture extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
-                  height: 25,
-                  width: 25,
-                  color: Color(0xFF519872),
-                  child: Icon(
-                    Icons.chevron_left,
-                    color: Colors.white,
-                  ),
-                ),
+                    color: Color(0xFF519872),
+                    child: IconButton(
+                      icon: Center(
+                          child: Icon(
+                        Icons.chevron_left,
+                        color: Colors.white,
+                      )),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Navigation()),
+                        );
+                      },
+                    )),
                 Text(
                   "عملية",
                   style: TextStyle(
@@ -92,12 +98,16 @@ class Stricture extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               // ignore: prefer_const_literals_to_create_immutables
               children: [
+                
                 Button(
+
                   color1: Color(0xFF519872),
                   color2: Color(0xFFB7DEC9),
                   name: 'دخل اضافي',
                   icon: Icons.arrow_circle_down,
                 ),
+
+
                 Button(
                   color1: Color(0xFFEBA90D),
                   color2: Color(0xFFFEF0D0),
@@ -116,15 +126,19 @@ class Stricture extends StatelessWidget {
                   fontSize: 17,
                   fontWeight: FontWeight.w700),
             ),
-            SizedBox(height: 5,),
-           TextField(
-            controller: priceController,
-              decoration: InputDecoration(
-                border:  OutlineInputBorder(),
-                labelText: '١٠٠ ريال',
-              ), 
+            SizedBox(
+              height: 5,
             ),
-            SizedBox(height: 35,),
+            TextField(
+              controller: priceController,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: '١٠٠ ريال',
+              ),
+            ),
+            SizedBox(
+              height: 35,
+            ),
             Text(
               "الفئه",
               style: TextStyle(
@@ -132,8 +146,10 @@ class Stricture extends StatelessWidget {
                   fontSize: 17,
                   fontWeight: FontWeight.w700),
             ),
-            SizedBox(height: 5,),
-        Obx(
+            SizedBox(
+              height: 5,
+            ),
+            Obx(
               () => DropdownButton(
                 value: controller.dropdownValue.value,
                 onChanged: (value) {
@@ -141,14 +157,14 @@ class Stricture extends StatelessWidget {
                 },
                 icon: const Visibility(
                     visible: false, child: Icon(Icons.arrow_downward)),
-                items: itemList.map<DropdownMenuItem>((Item value){
+                items: itemList.map<DropdownMenuItem>((Item value) {
                   return DropdownMenuItem(
                     value: value.name,
                     child: Directionality(
                       textDirection: TextDirection.rtl,
                       child: Row(
                         children: [
-                          Icon(value.icon,color: Color(0xFF519872)),
+                          Icon(value.icon, color: Color(0xFF519872)),
                           const SizedBox(
                             width: 10,
                           ),
@@ -165,18 +181,23 @@ class Stricture extends StatelessWidget {
                 // change button value to selected value
               ),
             ),
-          SizedBox(height: 35,),
+            SizedBox(
+              height: 35,
+            ),
             Text(
-              "اخار التاريخ",
+              "اختار التاريخ",
               style: TextStyle(
                   color: Color(0xFF519872),
                   fontSize: 17,
                   fontWeight: FontWeight.w700),
             ),
-             SizedBox(height: 5,),
-             TextFormField(
+            SizedBox(
+              height: 5,
+            ),
+            TextFormField(
+              controller: dateController,
               style: TextStyle(
-                color:  Color(0xFF519872),
+                color: Color(0xFF519872),
                 fontSize: 22,
               ),
               cursorColor: Color(0xFF519872),
@@ -200,13 +221,45 @@ class Stricture extends StatelessWidget {
                     lastDate: DateTime(2101));
               },
             ),
-            SizedBox(height: 30,),
+            SizedBox(
+              height: 50,
+            ),
             Container(
               decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(6),
-            color:  Color(0xFF519872),),
-              child: TextButton(onPressed: () {  },
-              child: Text("اضافة العملية",style:TextStyle(color: Colors.white,fontSize: 17,fontWeight: FontWeight.w700) ,),),
+                borderRadius: BorderRadius.circular(6),
+                color: Color(0xFF519872),
+              ),
+              child: TextButton(
+                onPressed: () {
+                  double price = double.parse(priceController.text);
+                  if (controller.dropdownValue.value == "التسوق") {
+                    controller.add_shopping_list(
+                        price, true, DateTime.now(), "Note shopping");
+                  } else if (controller.dropdownValue.value == "فواتير") {
+                    controller.add_bill_list(
+                        price, true, DateTime.now(), "Note bill");
+                  } else if (controller.dropdownValue.value == "مطعم") {
+                    controller.add_restaurant_list(
+                        price, true, DateTime.now(), "Note Restaurant");
+                  } else if (controller.dropdownValue.value == "نقل") {
+                    controller.add_transport_list(
+                        price, true, DateTime.now(), "Note Transport");
+                  } else if (controller.dropdownValue.value == "قهوة") {
+                    controller.add_coffee_list(
+                        price, true, DateTime.now(), "Note Coffee");
+                  } else if (controller.dropdownValue.value == "اخر") {
+                    controller.add_another_list(
+                        price, true, DateTime.now(), "Note Another");
+                  }
+                },
+                child: Text(
+                  "اضافة العملية",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 17,
+                      fontWeight: FontWeight.w700),
+                ),
+              ),
             ),
           ],
         ),
@@ -227,37 +280,42 @@ class Button extends StatelessWidget {
     required this.icon,
     super.key,
   });
-
+  Home_Controller controller = Get.put<Home_Controller>(Home_Controller(),
+      tag: "home_data", permanent: true);
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(7),
+      padding: EdgeInsets.all(1),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(6),
           color: color2,
           border: Border.all(color: color1)),
-      height: MediaQuery.of(context).size.height * .1,
+      height: MediaQuery.of(context).size.height * .08,
       width: MediaQuery.of(context).size.width * .41,
-      child: TextButton(
-        onPressed: () {},
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Icon(
-              icon,
-              color: color1,
-            ),
-            Text(
-              name,
-              style: TextStyle(color: color1, fontSize: 17),
-            ),
-          ],
+      child:TextButton(
+          onPressed: () {
+             print(controller.isExpenses.value);
+            controller.onPressedisExpenses(false);
+            print(controller.isExpenses.value);
+          },
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Icon(
+                icon,
+                color: color1,
+              ),
+              Text(
+                name,
+                style: TextStyle(color: color1, fontSize: 17),
+              ),
+            ],
+          ),
         ),
-      ),
+      
     );
   }
 }
-
 
 class Item {
   String? name;
