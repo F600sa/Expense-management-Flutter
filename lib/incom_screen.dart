@@ -18,7 +18,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'home.dart';
+import 'Home/home_screen.dart';
 
 class MyIncomPage extends StatefulWidget {
   const MyIncomPage({super.key, required this.title});
@@ -164,9 +164,10 @@ class _MyIncomPageState extends State<MyIncomPage> {
                   print('income:' + _incomeController.text);
                   print('date:' + _dateController.text);
 
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) =>
-                          homePage(income: _incomeController.text)));
+                  // Navigator.of(context).push(MaterialPageRoute(
+                  //     builder: (context) =>
+                  //         HomeScreen(income: _incomeController.text)));
+
                   SimpleDialog(context);
                
                 },

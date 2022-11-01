@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'income.dart';
-import 'main.dart';
+
+
+import 'Home/home_screen.dart';
+import 'package:jaeeb_arabic_version/incom_screen.dart';
 
 class Splash extends StatefulWidget {
   const Splash({super.key});
