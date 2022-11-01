@@ -1,24 +1,24 @@
-import 'package:expense_management/Home/expenses_calsses.dart';
-import 'package:expense_management/Profile/profile.dart';
-import 'package:expense_management/Test.dart';
+
+
 import 'package:flutter/rendering.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'dart:ffi';
 import 'package:flutter/material.dart';
-import 'package:expense_management/Chart/wid.dart';
+
 import 'package:google_fonts/google_fonts.dart';
+import 'package:jaeeb_arabic_version/Chart/wid.dart';
+import 'package:jaeeb_arabic_version/jaeeb_controller.dart';
+import 'package:jaeeb_arabic_version/main.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
-import 'package:syncfusion_flutter_charts/sparkcharts.dart';
+// import 'package:syncfusion_flutter_charts/sparkcharts.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:expense_management/Home/home_controller.dart';
-import 'package:expense_management/main.dart';
+
 import 'package:get/get.dart';
 
-import '../widget/OutlinedButton.dart';
 
-  Home_Controller controller = Get.put<Home_Controller>(Home_Controller(),tag: "home_data", permanent: true);
-  
+
+  Home_Controller controller = Get.put<Home_Controller>(Home_Controller(),tag: "home_data", permanent: true);  
 
  var lists = [[2],[23],[23],[500]];
   var sum = lists.reduce((value, current) => value + current);
@@ -210,7 +210,7 @@ class _ChartState extends State<Chart> {
               Navigator.push
               
               (context,
-              MaterialPageRoute(builder: (context) => const Test2())
+              MaterialPageRoute(builder: (context) =>  MyApp())
               );
             }, child: Text("المزيد",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20,decoration: TextDecoration.underline,color: Colors.black),)),
             Text("مجموع العمليات",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
@@ -221,8 +221,8 @@ class _ChartState extends State<Chart> {
 
        
         MyWidget(text: "الدخل",text2: controller.income.toString(),icons2: Icons.money_sharp,color23: ("#519872"),color1:("#519872")),
-        MyWidget(text: "المصروفات",text2:controller.spending_fun(1000).toString() ,icons2: Icons.money ,color23: ("#EBA90D"),color1:("#EBA90D")),
-        MyWidget(text: "الادخار",text2: controller.saving_fun(controller.income, controller.spending_fun(1000)).toString(),icons2: Icons.flag,color23: ("#519872"),color1:"#519872",),
+        MyWidget(text: "المصروفات",text2:controller.spending_fun(0).toString() ,icons2: Icons.money ,color23: ("#EBA90D"),color1:("#EBA90D")),
+        MyWidget(text: "الادخار",text2: controller.saving_fun(0, controller.spending_fun(0)).toString(),icons2: Icons.flag,color23: ("#519872"),color1:"#519872",),
         
             ],
           ),
@@ -231,9 +231,9 @@ class _ChartState extends State<Chart> {
   }
   List<GDPData>GetChartData(){
     final List<GDPData>chartData=[
-      GDPData("الدخل",controller.income ),
-      GDPData("المصروفات",controller.spending_fun(1000)),
-      GDPData("الادخار", controller.saving_fun(controller.income, controller.spending_fun(1000))),
+      GDPData("الدخل",controller.income.value ),
+      GDPData("المصروفات",controller.spending_fun(0)),
+      GDPData("الادخار", controller.saving_fun(0, controller.spending_fun(0))),
       // GDPData("Fixed", 134),
       
     ];

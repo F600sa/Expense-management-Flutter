@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:jaeeb_arabic_version/jaeeb_controller.dart';
 
-import '../home_controller.dart';
 
 class ListViewOfTransactions extends StatelessWidget {
   ListViewOfTransactions({super.key});
