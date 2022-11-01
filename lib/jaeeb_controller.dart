@@ -6,6 +6,23 @@ import 'jaeeb_calsses.dart';
 import 'package:get/get.dart';
 
 class Home_Controller extends GetxController {
+    // Goals
+  List goals = [];
+  double total_goals = 0;
+  void add_goals_list(
+      double total, double monthlyCost,String goal) {
+    goals.add(new Goals(total, monthlyCost, goal));
+  }
+    double total_goals_fun() {
+    total_goals = 0;
+    for (var g in goals) {
+      total_goals += g.monthlyCost;
+    }
+    return total_expenses;
+  }
+
+
+
   /* setting */
   final dropdownValue = "التسوق".obs;
   void onchangedropdownValue(String? dropdownvalue) {
@@ -13,10 +30,11 @@ class Home_Controller extends GetxController {
   }
 
   final isExpenses = true.obs;
- void onPressedisExpenses(bool? isIt ){
-  isExpenses.value=isIt!;
- }
-   /* Expenses */
+  void onPressedisExpenses(bool? isIt) {
+    isExpenses.value = isIt!;
+  }
+
+  /* Expenses */
   List expenses = [];
 
   double total_expenses = 0;
@@ -265,4 +283,6 @@ class Home_Controller extends GetxController {
     super.onClose();
     print("onClose");
   }
+
+
 }

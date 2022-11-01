@@ -34,7 +34,7 @@ class _MyAppState extends State<MyApp> {
       title: 'جيب',
       // initialRoute: "/home",
       defaultTransition: Transition.zoom,
-      home: Splash(),
+      home: Navigation(),
     );
   }
 }

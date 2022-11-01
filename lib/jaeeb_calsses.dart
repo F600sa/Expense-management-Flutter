@@ -94,3 +94,15 @@ class Another {
     this.note = note;
   }
 }
+
+
+class Goals {
+  double? total;
+  double? monthlyCost;
+  String? goal;
+  Goals(double total, double monthlyCost,String goal) {
+    this.total = total;
+    this.monthlyCost = monthlyCost;
+    this.goal = goal;
+  }
+}
