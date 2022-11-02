@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
 import '../jaeeb_controller.dart';
+
 import 'GoalsPage.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -233,13 +235,16 @@ class _GoalsPageState extends State<GoalsPage> {
             )
           ],
         ),
+
       ),
     );
   }
 
   void _settingModalBottomSheet(context) {
+
     Home_Controller controller = Get.put<Home_Controller>(Home_Controller(),
         tag: "home_data", permanent: true);
+
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
@@ -382,11 +387,13 @@ class _GoalsPageState extends State<GoalsPage> {
                           ),
                           onPressed: () {
                             if (_formKey.currentState!.validate()) {
+
                               controller.add_goals_list(
                                   double.parse(goalController.text),
                                   double.parse(goalController.text),
                                   "goal");
                               print(controller.total_goals_fun());
+
                               setState(() {
                                 goalHeading.add(goalHeadingController.text);
                                 goalDescription
