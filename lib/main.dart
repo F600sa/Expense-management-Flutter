@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jaeeb_arabic_version/Home/splash.dart';
+import 'package:jaeeb_arabic_version/income.dart';
 
 import 'Goals/goals_screen.dart';
 import 'Home/home_screen.dart';
@@ -34,7 +34,7 @@ class _MyAppState extends State<MyApp> {
       title: 'جيب',
       // initialRoute: "/home",
       defaultTransition: Transition.zoom,
-      home: Navigation(),
+      home: Income(),
     );
   }
 }
@@ -67,9 +67,9 @@ class _NavigationState extends State<Navigation> {
           selectedIndex = index;
           if (selectedIndex == 2) {
             Navigator.push(
-              context,MaterialPageRoute(
-                builder: (context) =>  AddTransaction()),
-                );  
+              context,
+              MaterialPageRoute(builder: (context) => AddTransaction()),
+            );
           }
         }),
         backgroundColor: Colors.white,
@@ -97,7 +97,7 @@ class _NavigationState extends State<Navigation> {
                 Icons.person,
                 color: Color(0xFF519872),
               ),
-              label: 'Profile'),
+              label: ''),
         ],
       ),
       body: Container(

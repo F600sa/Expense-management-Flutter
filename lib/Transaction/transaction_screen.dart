@@ -1,15 +1,14 @@
-// ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 import '../jaeeb_controller.dart';
+
 class Transaction extends StatelessWidget {
   const Transaction({super.key});
 
   @override
   Widget build(BuildContext context) {
-      return SafeArea(
+    return SafeArea(
       child: Scaffold(
         body: Directionality(
           textDirection: TextDirection.rtl,
@@ -19,6 +18,7 @@ class Transaction extends StatelessWidget {
     );
   }
 }
+
 class Stricture extends StatelessWidget {
   const Stricture({super.key});
 
@@ -34,21 +34,21 @@ class Stricture extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           // ignore: prefer_const_literals_to_create_immutables
           children: [
-            Text("تفاصيل العملة ",style: TextStyle(
-              fontSize: 16,fontWeight: FontWeight.w800
-            ),),
-            SizedBox(height: 20,),
-            ListViewOfTransactions(),  
+            Text(
+              "تفاصيل العملة ",
+              style: GoogleFonts.ibmPlexSansArabic(
+                  fontSize: 16, fontWeight: FontWeight.w800),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            ListViewOfTransactions(),
           ],
         ),
       ),
-      
-      
-      );
+    );
   }
 }
-
-
 
 class ListViewOfTransactions extends StatelessWidget {
   ListViewOfTransactions({super.key});
@@ -104,7 +104,10 @@ class CardTransaction extends StatelessWidget {
                     Text(
                       controller.expenses[index].type.toString(),
                       style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                       GoogleFonts.ibmPlexSansArabic(
+                  color: Color(0xFF519872),
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700),
                     ),
                     Text(
                       controller.expenses[index].date.day.toString() +
@@ -112,27 +115,31 @@ class CardTransaction extends StatelessWidget {
                           controller.expenses[index].date.month.toString() +
                           "-" +
                           controller.expenses[index].date.year.toString(),
-                      style:
-                          TextStyle(fontSize: 12),
+                      style: GoogleFonts.ibmPlexSansArabic(
+                  fontSize: 12,
+                  ),
                     ),
                   ],
                 ),
               ],
             ),
-               Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Text(
-                      controller.expenses[index].price.toInt().toString()+" ريال",
-                      style:
-                          TextStyle(color:const Color(0xFFEBA90D) ,fontSize: 16, fontWeight: FontWeight.bold),
-                    ),
-                    
-                  ],
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Text(
+                  controller.expenses[index].price.toInt().toString() + " ريال",
+                  style:
+                  GoogleFonts.ibmPlexSansArabic(
+                  color: const Color(0xFFEBA90D),
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700),
                 ),
+              ],
+            ),
           ],
         ),
       ),
     );
   }
 }
+

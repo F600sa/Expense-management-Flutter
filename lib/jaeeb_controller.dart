@@ -6,22 +6,20 @@ import 'jaeeb_calsses.dart';
 import 'package:get/get.dart';
 
 class Home_Controller extends GetxController {
-    // Goals
+  // Goals
   List goals = [];
   double total_goals = 0;
-  void add_goals_list(
-      double total, double monthlyCost,String goal) {
+  void add_goals_list(double total, double monthlyCost, String goal) {
     goals.add(new Goals(total, monthlyCost, goal));
   }
-    double total_goals_fun() {
+
+  double total_goals_fun() {
     total_goals = 0;
     for (var g in goals) {
       total_goals += g.monthlyCost;
     }
-    return total_expenses;
+    return total_goals.abs();
   }
-
-
 
   /* setting */
   final dropdownValue = "التسوق".obs;
@@ -29,10 +27,6 @@ class Home_Controller extends GetxController {
     dropdownValue.value = dropdownvalue!;
   }
 
-  final isExpenses = true.obs;
-  void onPressedisExpenses(bool? isIt) {
-    isExpenses.value = isIt!;
-  }
 
   /* Expenses */
   List expenses = [];
@@ -57,36 +51,28 @@ class Home_Controller extends GetxController {
     for (var ex in expenses) {
       total_expenses += ex.price;
     }
-    return total_expenses;
+    return total_expenses.abs();
   }
 
   /* income and  current_balance saving */
-  final income = 10000.00.obs;
-  void onchangedIncome(double? num) {
-    income.value = num!;
-  }
 
-  double spending_fun(
-    double goals,
-  ) {
+  
+
+  double spending_fun() {
     double expenses = total_expenses_fun();
-    return expenses + goals;
+    return expenses.abs() ;
   }
+  final extraIncome = 0.0.obs;
 
-  double current_balance_fun(
-    double income,
-    double goals,
-  ) {
-    double spending = total_expenses_fun() + goals;
+  double current_balance_fun(double income) {
+    double spending = total_expenses_fun() + total_goals;
 
-    return income - spending;
+    return (income - spending).abs()+extraIncome.value.abs() ;
   }
+  
 
-  double saving_fun(
-    double income,
-    double spending,
-  ) {
-    return income - spending;
+  double saving_fun() {
+    return total_goals.abs();
   }
 
 /* Shopping */
@@ -283,6 +269,4 @@ class Home_Controller extends GetxController {
     super.onClose();
     print("onClose");
   }
-
-
 }

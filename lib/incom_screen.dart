@@ -37,8 +37,7 @@ class _MyIncomPageState extends State<MyIncomPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
+    return Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -164,9 +163,9 @@ class _MyIncomPageState extends State<MyIncomPage> {
                   print('income:' + _incomeController.text);
                   print('date:' + _dateController.text);
 
-                  // Navigator.of(context).push(MaterialPageRoute(
-                  //     builder: (context) =>
-                  //         HomeScreen(income: _incomeController.text)));
+                  Navigator.of(context).push(MaterialPageRoute(
+                       builder: (context) =>
+                          HomeScreen()));
 
                   // SimpleDialog(context);
                
@@ -181,7 +180,7 @@ class _MyIncomPageState extends State<MyIncomPage> {
         
           ],
         ),
-      ),
+      
     );
   }
 

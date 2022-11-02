@@ -1,11 +1,11 @@
-// ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors, unnecessary_new
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../jaeeb_controller.dart';
+import '../jaeeb_controller2.dart';
 import '../main.dart';
+import 'transaction_screen.dart';
 
 class AddTransaction extends StatelessWidget {
   const AddTransaction({super.key});
@@ -29,8 +29,11 @@ class Stricture extends StatelessWidget {
       tag: "home_data", permanent: true);
   TextEditingController priceController = TextEditingController();
   TextEditingController dateController = TextEditingController();
+  Home_Controller2 controller2 = Get.put<Home_Controller2>(Home_Controller2(),
+      tag: "home_data", permanent: true);
 
   // List of items in our dropdown menu
+  
   List<Item> itemList = [
     new Item('التسوق', Icons.store),
     new Item('مطعم', Icons.restaurant_menu),
@@ -38,7 +41,10 @@ class Stricture extends StatelessWidget {
     new Item('نقل', Icons.directions_bus),
     new Item('فواتير', Icons.receipt_long),
     new Item('اخر', Icons.control_point),
+    new Item('مال اضافي', Icons.money),
   ];
+
+
   String dropdownValue = 'التسوق';
 
   @override
@@ -56,13 +62,18 @@ class Stricture extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
-                    color: Color(0xFF519872),
+                    width: 40,
+                    height: 40,
+                    decoration: BoxDecoration(
+                      color: Color(0xFF519872),
+                      borderRadius: BorderRadius.circular(6),
+                    ),
                     child: IconButton(
-                      icon: Center(
-                          child: Icon(
+                      iconSize: 24,
+                      icon: Icon(
                         Icons.chevron_left,
                         color: Colors.white,
-                      )),
+                      ),
                       onPressed: () {
                         Navigator.push(
                           context,
@@ -70,12 +81,14 @@ class Stricture extends StatelessWidget {
                         );
                       },
                     )),
-                Text(
-                  "عملية",
-                  style: TextStyle(
-                      color: Color(0xFF519872),
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600),
+                Center(
+                  child: Text(
+                    "عملية",
+                    style: GoogleFonts.ibmPlexSansArabic(
+                        color: Color(0xFF519872),
+                        fontSize: 20,
+                        fontWeight: FontWeight.w700),
+                  ),
                 ),
                 SizedBox(
                   height: 30,
@@ -86,8 +99,8 @@ class Stricture extends StatelessWidget {
               height: 25,
             ),
             Text(
-              "فضلا ادخل وع العمليه",
-              style: TextStyle(
+              "فضلا ادخل العملية",
+              style: GoogleFonts.ibmPlexSansArabic(
                   color: Color(0xFF519872),
                   fontSize: 17,
                   fontWeight: FontWeight.w700),
@@ -99,39 +112,28 @@ class Stricture extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               // ignore: prefer_const_literals_to_create_immutables
               children: [
-                Button(
-                  color1: Color(0xFF519872),
-                  color2: Color(0xFFB7DEC9),
-                  name: 'دخل اضافي',
-                  icon: Icons.arrow_circle_down,
+                Obx(
+                  () => Button(
+                    color1: controller2.greenColor1.value,
+                    color2: controller2.greenColor2.value,
+                    name: 'دخل اضافي',
+                    icon: Icons.arrow_circle_down,
+                  ),
                 ),
-                Button(
-                  color1: Color(0xFFEBA90D),
-                  color2: Color(0xFFFEF0D0),
-                  name: 'مصروفات',
-                  icon: Icons.arrow_circle_up,
-                ),
-/*                    Obx(() =>Button(
-                  color1: Color(0xFF519872),
-                  color2: Color(0xFFB7DEC9),
-                  name: 'دخل اضافي',
-                  icon: Icons.arrow_circle_down,
-                ),),
-                Obx(()=>Button(
-                  color1: Color(0xFFEBA90D),
-                  color2: Color(0xFFFEF0D0),
-                  name: 'مصروفات',
-                  icon: Icons.arrow_circle_up,
-                )
-                ), */
+                Obx(() => Button(
+                      color1: controller2.orangeColor2.value,
+                      color2: controller2.orangeColor1.value,
+                      name: 'مصروفات',
+                      icon: Icons.arrow_circle_up,
+                    )),
               ],
             ),
             SizedBox(
               height: 25,
             ),
             Text(
-              "السعر",
-              style: TextStyle(
+              "المبلغ",
+              style: GoogleFonts.ibmPlexSansArabic(
                   color: Color(0xFF519872),
                   fontSize: 17,
                   fontWeight: FontWeight.w700),
@@ -143,7 +145,7 @@ class Stricture extends StatelessWidget {
               controller: priceController,
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
-                labelText: '١٠٠ ريال',
+                labelText: '',
               ),
             ),
             SizedBox(
@@ -151,7 +153,7 @@ class Stricture extends StatelessWidget {
             ),
             Text(
               "الفئه",
-              style: TextStyle(
+              style: GoogleFonts.ibmPlexSansArabic(
                   color: Color(0xFF519872),
                   fontSize: 17,
                   fontWeight: FontWeight.w700),
@@ -180,7 +182,8 @@ class Stricture extends StatelessWidget {
                           ),
                           Text(
                             value.name.toString(),
-                            style: const TextStyle(fontWeight: FontWeight.w400),
+                            style: GoogleFonts.ibmPlexSansArabic(
+                                fontSize: 17, fontWeight: FontWeight.w400),
                           )
                         ],
                       ),
@@ -194,14 +197,14 @@ class Stricture extends StatelessWidget {
             SizedBox(
               height: 35,
             ),
-            Text(
+     /*        Text(
               "اختار التاريخ",
-              style: TextStyle(
+              style: GoogleFonts.ibmPlexSansArabic(
                   color: Color(0xFF519872),
                   fontSize: 17,
                   fontWeight: FontWeight.w700),
-            ),
-            SizedBox(
+            ), */
+         /*    SizedBox(
               height: 5,
             ),
             TextFormField(
@@ -214,7 +217,7 @@ class Stricture extends StatelessWidget {
               decoration: const InputDecoration(
                 // icon: Icon(Icons.calendar_today_rounded),
                 prefixIcon: Icon(Icons.calendar_today),
-                hintText: '٢٠٢٢-١-٢',
+                hintText: '',
                 hintStyle: TextStyle(color: Colors.grey),
                 border: OutlineInputBorder(
                   borderSide: BorderSide(color: Colors.grey),
@@ -230,10 +233,8 @@ class Stricture extends StatelessWidget {
                     firstDate: DateTime(2000),
                     lastDate: DateTime(2101));
               },
-            ),
-            SizedBox(
-              height: 50,
-            ),
+            ), */
+            SizedBox(height: MediaQuery.of(context).size.height * 0.15),
             Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(6),
@@ -242,29 +243,42 @@ class Stricture extends StatelessWidget {
               child: TextButton(
                 onPressed: () {
                   double price = double.parse(priceController.text);
-                  if (controller.dropdownValue.value == "التسوق") {
-                    controller.add_shopping_list(
-                        price, true, DateTime.now(), "Note shopping");
-                  } else if (controller.dropdownValue.value == "فواتير") {
-                    controller.add_bill_list(
-                        price, true, DateTime.now(), "Note bill");
-                  } else if (controller.dropdownValue.value == "مطعم") {
-                    controller.add_restaurant_list(
-                        price, true, DateTime.now(), "Note Restaurant");
-                  } else if (controller.dropdownValue.value == "نقل") {
-                    controller.add_transport_list(
-                        price, true, DateTime.now(), "Note Transport");
-                  } else if (controller.dropdownValue.value == "قهوة") {
-                    controller.add_coffee_list(
-                        price, true, DateTime.now(), "Note Coffee");
-                  } else if (controller.dropdownValue.value == "اخر") {
-                    controller.add_another_list(
-                        price, true, DateTime.now(), "Note Another");
+                  print(controller2.isExpenses);
+
+                  if (controller2.isExpenses == true) {
+                    if (controller.dropdownValue.value == "التسوق") {
+                      controller.add_shopping_list(
+                          price, true, DateTime.now(), "Note shopping");
+                    } else if (controller.dropdownValue.value == "فواتير") {
+                      controller.add_bill_list(
+                          price, true, DateTime.now(), "Note bill");
+                    } else if (controller.dropdownValue.value == "مطعم") {
+                      controller.add_restaurant_list(
+                          price, true, DateTime.now(), "Note Restaurant");
+                    } else if (controller.dropdownValue.value == "نقل") {
+                      controller.add_transport_list(
+                          price, true, DateTime.now(), "Note Transport");
+                    } else if (controller.dropdownValue.value == "قهوة") {
+                      controller.add_coffee_list(
+                          price, true, DateTime.now(), "Note Coffee");
+                    } else if (controller.dropdownValue.value == "اخر") {
+                      controller.add_another_list(
+                          price, true, DateTime.now(), "Note Another");
+                    }
+                  } else if (controller2.isExpenses == false) {
+                    controller.extraIncome.value = price;
+                    print("extraIncome" +
+                        controller.extraIncome.value.toString());
                   }
+
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Navigation()),
+                  );
                 },
                 child: Text(
                   "اضافة العملية",
-                  style: TextStyle(
+                  style: GoogleFonts.ibmPlexSansArabic(
                       color: Colors.white,
                       fontSize: 17,
                       fontWeight: FontWeight.w700),
@@ -280,7 +294,7 @@ class Stricture extends StatelessWidget {
 
 class Button extends StatefulWidget {
   Color color1;
-  Color color2 = Color(0xFF519872);
+  Color color2;
   String name;
   IconData icon;
   Button({
@@ -296,7 +310,7 @@ class Button extends StatefulWidget {
 }
 
 class _ButtonState extends State<Button> {
-  Home_Controller controller = Get.put<Home_Controller>(Home_Controller(),
+  Home_Controller2 controller2 = Get.put<Home_Controller2>(Home_Controller2(),
       tag: "home_data", permanent: true);
 
   @override
@@ -311,19 +325,20 @@ class _ButtonState extends State<Button> {
       width: MediaQuery.of(context).size.width * .41,
       child: TextButton(
         onPressed: () {
-          if (widget.color1 == Color(0xFF519872) &&
-              widget.color2 == Color(0xFFB7DEC9)) {
-            widget.color1 == Color(0xFFB7DEC9);
-            widget.color2 == Color(0xFF519872);
-            controller.onPressedisExpenses(false);
-            
-            setState(() {});
-          } else if (widget.color1 == Color(0xFFEBA90D) &&
-              widget.color2 == Color(0xFFFEF0D0)) {
-            widget.color1 == Color(0xFFFEF0D0);
-            widget.color2 == Color(0xFFEBA90D);
-            
-            setState(() {});
+          controller2.onPressedisExpenses();
+
+          if (controller2.isExpenses == false) {
+            controller2.greenColor1.value = const Color(0xFFB7DEC9);
+            ;
+            controller2.greenColor2.value = const Color(0xFF519872);
+            controller2.orangeColor1.value = const Color(0xFFFEF0D0);
+            controller2.orangeColor2.value = const Color(0xFFEBA90D);
+            print(controller2.isExpenses);
+          } else if (controller2.isExpenses == true) {
+            controller2.greenColor1.value = const Color(0xFF519872);
+            controller2.greenColor2.value = const Color(0xFFB7DEC9);
+            controller2.orangeColor1.value = const Color(0xFFEBA90D);
+            controller2.orangeColor2.value = const Color(0xFFFEF0D0);
           }
         },
         child: Column(
@@ -335,7 +350,10 @@ class _ButtonState extends State<Button> {
             ),
             Text(
               widget.name,
-              style: TextStyle(color: widget.color1, fontSize: 17),
+              style: GoogleFonts.ibmPlexSansArabic(
+                  color: widget.color1,
+                  fontSize: 17,
+                  fontWeight: FontWeight.w700),
             ),
           ],
         ),

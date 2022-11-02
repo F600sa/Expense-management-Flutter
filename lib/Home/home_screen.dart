@@ -4,15 +4,17 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:jaeeb_arabic_version/jaeeb_controller.dart';
 import '../Chart/Chart2.dart';
+import '../jaeeb_controller2.dart';
 
 class HomeScreen extends StatelessWidget {
-  // Home_Controller controller = Get.put<Home_Controller>(Home_Controller(),tag: "home_data", permanent: true);
-      Home_Controller controller = Get.put<Home_Controller>(Home_Controller(),
-        tag: "home_data", permanent: true);
+
   HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+      Home_Controller controller = Get.put<Home_Controller>(Home_Controller(),tag: "home_data", permanent: true);  
+  Home_Controller2 controller2 = Get.put<Home_Controller2>(Home_Controller2());
+
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment:CrossAxisAlignment.end ,
@@ -24,23 +26,25 @@ class HomeScreen extends StatelessWidget {
             textDirection: TextDirection.rtl,
             child: Row(
               children: [
-                Text(controller.current_balance_fun(controller.income.value,2).toInt().toString(),style: const TextStyle(
+                
+                Text(controller.current_balance_fun(controller2.income.value).toInt().toString(),style: const TextStyle(
                 fontSize: 20,
                 color: Colors.black,
                 fontWeight: FontWeight.w700,
                    ),),
-               Text(" ريال",style: const TextStyle(
-                fontSize: 20,
-                color: Colors.black,
-                fontWeight: FontWeight.w700,
-                   ),),
+               Text(" ريال",style: 
+               GoogleFonts.ibmPlexSansArabic(
+                  color: Colors.black,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w700),
+               ),
           
               ],
             ),
           ),
          const SizedBox(height: 10,),
       
-        Chart(),
+        Chart(), 
 
          const SizedBox(height: 10,),
       

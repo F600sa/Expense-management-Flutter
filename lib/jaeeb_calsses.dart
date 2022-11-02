@@ -106,3 +106,11 @@ class Goals {
     this.goal = goal;
   }
 }
+
+
+class Income {
+  double? income;
+  Income(double income) {
+    this.income = income;
+  }
+}
