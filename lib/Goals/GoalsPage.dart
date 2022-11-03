@@ -10,9 +10,9 @@ TextEditingController goalController = TextEditingController();
 
 FocusNode textSecondFocusNode = FocusNode();
 
-int goalHeaderMaxLenth = 25;
-int goalsDescriptionMaxLines = 10;
-var goalDescriptionMaxLenth;
+// int goalHeaderMaxLenth = 25;
+// int goalsDescriptionMaxLines = 10;
+// var goalDescriptionMaxLenth;
 String deletedGoalHeading = "";
 String deletedGoalDescription = "";
 String deletedggoalController = "";

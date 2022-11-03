@@ -33,7 +33,7 @@ class Stricture extends StatelessWidget {
       tag: "home_data", permanent: true);
 
   // List of items in our dropdown menu
-  
+
   List<Item> itemList = [
     new Item('التسوق', Icons.store),
     new Item('مطعم', Icons.restaurant_menu),
@@ -43,7 +43,6 @@ class Stricture extends StatelessWidget {
     new Item('اخر', Icons.control_point),
     new Item('مال اضافي', Icons.money),
   ];
-
 
   String dropdownValue = 'التسوق';
 
@@ -169,7 +168,7 @@ class Stricture extends StatelessWidget {
                 },
                 icon: const Visibility(
                     visible: false, child: Icon(Icons.arrow_downward)),
-                items: itemList.map<DropdownMenuItem>((Item value) {
+                items: itemList.map((Item value) {
                   return DropdownMenuItem(
                     value: value.name,
                     child: Directionality(
@@ -197,14 +196,14 @@ class Stricture extends StatelessWidget {
             SizedBox(
               height: 35,
             ),
-     /*        Text(
+            /*        Text(
               "اختار التاريخ",
               style: GoogleFonts.ibmPlexSansArabic(
                   color: Color(0xFF519872),
                   fontSize: 17,
                   fontWeight: FontWeight.w700),
             ), */
-         /*    SizedBox(
+            /*    SizedBox(
               height: 5,
             ),
             TextFormField(
@@ -326,6 +325,8 @@ class _ButtonState extends State<Button> {
       child: TextButton(
         onPressed: () {
           controller2.onPressedisExpenses();
+          controller2.changeitemList();
+        print(controller2.itemList[0].name);
 
           if (controller2.isExpenses == false) {
             controller2.greenColor1.value = const Color(0xFFB7DEC9);

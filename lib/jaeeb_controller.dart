@@ -8,6 +8,9 @@ import 'package:get/get.dart';
 class Home_Controller extends GetxController {
   // Goals
   List goals = [];
+
+
+  
   double total_goals = 0;
   void add_goals_list(double total, double monthlyCost, String goal) {
     goals.add(new Goals(total, monthlyCost, goal));

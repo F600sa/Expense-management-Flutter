@@ -21,8 +21,8 @@ class _GoalsPageState extends State<GoalsPage> {
   @override
   void initState() {
     super.initState();
-    goalDescriptionMaxLenth =
-        goalsDescriptionMaxLines * goalsDescriptionMaxLines;
+    // goalDescriptionMaxLenth =
+    //     goalsDescriptionMaxLines * goalsDescriptionMaxLines;
   }
 
   @override
@@ -187,9 +187,10 @@ class _GoalsPageState extends State<GoalsPage> {
         child: Column(
           children: [
             Row(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                const Spacer(),
                 Text(
+                  
                   goalHeading[index],
                   style:
                       const TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
@@ -285,7 +286,9 @@ class _GoalsPageState extends State<GoalsPage> {
                         ],
                       ),
                       const SizedBox(height: 50),
-                      Row(children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
                         Text(
                           "ادخل الادخار",
                           style: GoogleFonts.ibmPlexSansArabic(
@@ -296,11 +299,11 @@ class _GoalsPageState extends State<GoalsPage> {
                       ]),
                       const SizedBox(height: 13),
                       TextFormField(
-                        maxLength: goalHeaderMaxLenth,
+                        // maxLength: goalHeaderMaxLenth,
                         controller: goalHeadingController,
                         decoration: const InputDecoration(
                           border: OutlineInputBorder(),
-                          hintText: "سيارة ",
+                          hintText: " ",
                           hintStyle: TextStyle(
                             fontSize: 12.00,
                             color: Color.fromARGB(81, 152, 158, 158),
@@ -317,7 +320,9 @@ class _GoalsPageState extends State<GoalsPage> {
                               .requestFocus(textSecondFocusNode);
                         },
                       ),
+                      SizedBox(height: 10,),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Text(
                             "المبلغ الاجمالي",
@@ -330,11 +335,11 @@ class _GoalsPageState extends State<GoalsPage> {
                       const SizedBox(height: 13),
                       TextFormField(
                         // focusNode: textSecondFocusNode,
-                        maxLength: goalHeaderMaxLenth,
+                        // maxLength: goalHeaderMaxLenth,
                         controller: goalDescriptionController,
                         decoration: const InputDecoration(
                           border: OutlineInputBorder(),
-                          hintText: '٥٥٠٠٠٠ ريال',
+                          hintText: '',
                           hintStyle: TextStyle(
                             fontSize: 12.00,
                             color: Color.fromARGB(134, 158, 158, 158),
@@ -347,7 +352,9 @@ class _GoalsPageState extends State<GoalsPage> {
                           return null;
                         },
                       ),
+                      SizedBox(height: 10,),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Text(
                             "مبلغ الاستقطاع الشهري ؟",
@@ -359,11 +366,11 @@ class _GoalsPageState extends State<GoalsPage> {
                       ),
                       const SizedBox(height: 13),
                       TextFormField(
-                        maxLength: goalHeaderMaxLenth,
+                        // maxLength: goalHeaderMaxLenth,
                         controller: goalController,
                         decoration: const InputDecoration(
                           border: OutlineInputBorder(),
-                          hintText: "٥٠٠ ريال ",
+                          hintText: "  ",
                           hintStyle: TextStyle(
                             fontSize: 12.00,
                             color: Color.fromARGB(134, 158, 158, 158),
